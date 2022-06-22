@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+function Generator() {
+  const generate = function (length) {
+    let password = "";
+    const SYMBOLS =
+      "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM0123456789~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
+    for (let i = 0; i < 8; i++) {
+      password += SYMBOLS.charAt(Math.floor(Math.random() * SYMBOLS.length));
+    }
+    console.log(password);
+  };
+
+  return <button onClick={generate}>Generate Password</button>;
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Generator />
     </div>
   );
 }
