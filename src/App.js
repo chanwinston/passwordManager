@@ -1,8 +1,10 @@
-import { useState } from "react";
-import React from "react";
+import { data } from "autoprefixer";
+import React, { useState } from "react";
 
 function Generator() {
-  let [password, setPassword] = useState("AREA FOR PASSWORD");
+  let [password, setPassword] = useState("");
+  let [database, setDatabase] = useState([]);
+
   const generate = () => {
     password = "";
     const SYMBOLS =
@@ -13,8 +15,16 @@ function Generator() {
     setPassword(password);
   };
 
+  const save = () => {
+    const email = document.getElementById("emailID").value;
+    const data = email + password;
+    database.push(data);
+    console.log(database);
+    setDatabase(database);
+  };
+
   return (
-    <div className='flex justify-center items-center h-screen'>
+    <div className='grid justify-center items-center h-screen'>
       <button
         onClick={generate}
         className='text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
@@ -22,6 +32,18 @@ function Generator() {
         Generate Password
       </button>
       <h1>{password}</h1>
+      <form>
+        <label>EMAIL</label>
+        <br />
+        <input id='emailID' type='text'></input>
+      </form>
+      <button
+        onClick={save}
+        className='text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
+      >
+        SAVE
+      </button>
+      <h1>{database}</h1>
     </div>
   );
 }
