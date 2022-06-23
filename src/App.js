@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import React, { useState } from "react";
 
 function Generator() {
@@ -16,15 +15,15 @@ function Generator() {
   };
 
   const save = () => {
-    const email = document.getElementById("emailID").value;
-    const data = email + password;
-    database.push(data);
-    console.log(database);
+    let email = document.getElementById("emailID").value;
+    database += "Email: " + email + " Password: " + password;
     setDatabase(database);
+    setPassword("");
+    document.getElementById("emailID").value = "";
   };
 
   return (
-    <div className='grid justify-center items-center h-screen'>
+    <div className='grid justify-center items-center h-screen bg-slate-400'>
       <button
         onClick={generate}
         className='text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
