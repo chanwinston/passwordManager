@@ -40,7 +40,7 @@ function Generator() {
 
   return (
     <div className='grid place-items-center w-screen h-screen bg-slate-400'>
-      <div className='w-3/4 md:w-1/2 grid bg-gray-500 h-1/2 rounded-lg place-items-center'>
+      <div className='w-3/4 md:w-1/2 grid bg-gray-500 h-fit rounded-lg place-items-center'>
         <h1 className='text-white first-line:tracking-tighter font-extrabold text-6xl p-5 text-center'>
           PASSWORD MANAGER
         </h1>
