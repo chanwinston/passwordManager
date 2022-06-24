@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { FaRegCopy } from "react-icons/fa";
 
-function Generator() {
+function Main() {
   let [password, setPassword] = useState(
     "ADD EMAIL AND WEBSITE TO SAVE TO A FILE"
   );
   let [database, setDatabase] = useState([]);
+  let emailRef = useRef();
+  let websiteRef = useRef();
 
   const generate = () => {
     password = "";
@@ -18,14 +20,17 @@ function Generator() {
   };
 
   const save = () => {
-    let email = document.getElementById("emailID").value;
-    let website = document.getElementById("websiteID").value;
     database +=
-      "Website: " + website + " Email: " + email + " Password: " + password;
+      "Website: " +
+      websiteRef.current.value +
+      " Email: " +
+      emailRef.current.value +
+      " Password: " +
+      password;
     setDatabase(database);
     setPassword("");
-    document.getElementById("emailID").value = "";
-    document.getElementById("websiteID").value = "";
+    websiteRef.current.value = "";
+    emailRef.current.value = "";
   };
 
   const copy = () => {
@@ -60,13 +65,13 @@ function Generator() {
         </h1>
         <form>
           <input
-            id='emailID'
+            ref={emailRef}
             type='text'
             className='mb-1 w-full md:w-96 appearance-none block px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
             placeholder='Email'
           ></input>
           <input
-            id='websiteID'
+            ref={websiteRef}
             type='text'
             className='w-full md:w-96 appearance-none block px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
             placeholder='Website'
@@ -94,7 +99,7 @@ function Generator() {
 function App() {
   return (
     <div>
-      <Generator />
+      <Main />
     </div>
   );
 }
