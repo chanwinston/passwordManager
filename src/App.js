@@ -16,10 +16,13 @@ function Generator() {
 
   const save = () => {
     let email = document.getElementById("emailID").value;
-    database += "Email: " + email + " Password: " + password;
+    let website = document.getElementById("websiteID").value;
+    database +=
+      "Website: " + website + " Email: " + email + " Password: " + password;
     setDatabase(database);
     setPassword("");
     document.getElementById("emailID").value = "";
+    document.getElementById("websiteID").value = "";
   };
 
   return (
@@ -32,9 +35,14 @@ function Generator() {
       </button>
       <h1>{password}</h1>
       <form>
-        <label>EMAIL</label>
+        <label>Email</label>
         <br />
         <input id='emailID' type='text'></input>
+      </form>
+      <form>
+        <label>Website</label>
+        <br />
+        <input id='websiteID' type='text'></input>
       </form>
       <button
         onClick={save}
