@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaRegCopy } from "react-icons/fa";
 
 function Generator() {
   let [password, setPassword] = useState(
@@ -27,6 +28,11 @@ function Generator() {
     document.getElementById("websiteID").value = "";
   };
 
+  const copy = () => {
+    navigator.clipboard.writeText(password);
+    setPassword("COPPIED!");
+  };
+
   return (
     <div className='grid place-items-center w-screen h-screen bg-slate-400'>
       <div className='w-3/4 md:w-1/2 grid bg-gray-500 h-1/2 rounded-lg place-items-center'>
@@ -39,7 +45,15 @@ function Generator() {
         >
           Generate Password
         </button>
-        <h1 className='text-center p-5 font-extrabold text-xl'>{password}</h1>
+        <h1 id='passwordID' className='text-center p-5 font-extrabold text-xl'>
+          {password}
+          <FaRegCopy
+            size='15px'
+            className='cursor-pointer inline ml-3'
+            onClick={copy}
+          />
+        </h1>
+
         <form>
           <input
             id='emailID'
