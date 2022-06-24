@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
 function Generator() {
-  let [password, setPassword] = useState("");
+  let [password, setPassword] = useState(
+    "ADD EMAIL AND WEBSITE TO SAVE TO A FILE"
+  );
   let [database, setDatabase] = useState([]);
 
   const generate = () => {
@@ -26,31 +28,40 @@ function Generator() {
   };
 
   return (
-    <div className='grid justify-center items-center h-screen bg-slate-400'>
-      <button
-        onClick={generate}
-        className='text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
-      >
-        Generate Password
-      </button>
-      <h1>{password}</h1>
-      <form>
-        <label>Email</label>
-        <br />
-        <input id='emailID' type='text'></input>
-      </form>
-      <form>
-        <label>Website</label>
-        <br />
-        <input id='websiteID' type='text'></input>
-      </form>
-      <button
-        onClick={save}
-        className='text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
-      >
-        SAVE
-      </button>
-      <h1>{database}</h1>
+    <div className='grid place-items-center w-screen h-screen bg-slate-400'>
+      <div className='w-3/4 md:w-1/2 grid bg-gray-500 h-1/2 rounded-lg place-items-center'>
+        <h1 className='text-white first-line:tracking-tighter font-extrabold text-6xl p-5 text-center'>
+          PASSWORD MANAGER
+        </h1>
+        <button
+          onClick={generate}
+          className='text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
+        >
+          Generate Password
+        </button>
+        <h1 className='text-center p-5 font-extrabold text-xl'>{password}</h1>
+        <form>
+          <input
+            id='emailID'
+            type='text'
+            className='mb-1 w-full md:w-96 appearance-none block px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+            placeholder='Email'
+          ></input>
+          <input
+            id='websiteID'
+            type='text'
+            className='w-full md:w-96 appearance-none block px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm'
+            placeholder='Website'
+          ></input>
+        </form>
+        <button
+          onClick={save}
+          className='ml-2 w-1/2 md:w-96 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
+        >
+          SAVE
+        </button>
+        <h1>{database}</h1>
+      </div>
     </div>
   );
 }
