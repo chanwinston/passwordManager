@@ -40,7 +40,7 @@ function Generator() {
 
   return (
     <div className='grid place-items-center w-screen h-screen bg-slate-400'>
-      <div className='w-3/4 md:w-1/2 grid bg-gray-500 h-fit rounded-lg place-items-center'>
+      <div className='w-full md:w-1/2 grid bg-gray-500 h-fit rounded-lg place-items-center'>
         <h1 className='text-white first-line:tracking-tighter font-extrabold text-6xl p-5 text-center'>
           PASSWORD MANAGER
         </h1>
@@ -74,7 +74,7 @@ function Generator() {
         </form>
         <button
           onClick={save}
-          className='ml-2 w-1/2 md:w-96 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
+          className='ml-2 mt-3 w-1/2 md:w-96 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
         >
           SAVE
         </button>
