@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { FaRegCopy } from "react-icons/fa";
+import { FaRegCopy, FaWindowClose } from "react-icons/fa";
 
 function Main() {
   let [password, setPassword] = useState("Password1");
@@ -45,6 +45,10 @@ function Main() {
     setPassword("COPPIED!");
   };
 
+  const deleteData = (x) => {
+    setDatabase((prev) => prev.filter((e) => e !== x));
+  };
+
   return (
     <div className='grid place-items-center w-screen min-h-screen h-max bg-slate-400'>
       <div className='w-full md:w-1/2 grid bg-gray-500 h-max rounded-lg place-items-center pb-10'>
@@ -87,6 +91,11 @@ function Main() {
         </button>
         {database.map((x) => (
           <div className='bg-neutral-400 p-2 rounded-md mt-1 w-96'>
+            <FaWindowClose
+              size='15px'
+              className='cursor-pointer inline mr-1'
+              onClick={() => deleteData(x)}
+            />
             <FaRegCopy
               size='15px'
               className='cursor-pointer inline'
